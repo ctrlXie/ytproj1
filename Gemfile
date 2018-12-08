@@ -64,6 +64,9 @@ group :development do
   gem 'better_errors', '~> 2.5'
   gem 'guard', '~> 2.15'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
+  # in console run: guard init livereload
+  # then run: bundle exec guard
+  # your localhost will now reload automatically
 end
 
 group :test do
