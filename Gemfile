@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bulma-rails', '~> 0.0.4.1'
+# gem 'bulma-rails', '~> 0.0.4.1'
 gem 'simple_form', '~> 4.1'
 gem 'devise', '~> 4.5'
 gem 'gravatar_image_tag', '~> 1.2'
@@ -43,6 +43,10 @@ gem 'wysiwyg-rails', '~> 2.9', '>= 2.9.1'
 gem 'public_activity', '~> 1.6', '>= 1.6.2'
 gem 'pg', '~> 1.1', '>= 1.1.3'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'binding_of_caller', '~> 0.8.0'
+
+# this fixed my bulma problem.  works for my version of rails.  Thank you stack overflow!
+gem "bulma-rails", "~> 0.7.2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
