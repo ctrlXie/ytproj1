@@ -1,6 +1,6 @@
 <h1>dashboard</h1>
 <section class="section pt3">
-  <p class="title is-5 border-bottom pb3 has-text-centered">Welcome <%#= current_user.name %> 👋🏻</p>
+  <p class="title is-5 border-bottom pb3 has-text-centered">Welcome <%= current_user.name %> 👋🏻</p>
   <div class="columns">
 
     <div class="column border-right ph4">
@@ -10,14 +10,14 @@
         </div>
         <div class="level-right">
           <p class="field">
-            <%#= link_to new_project_path, class: 'button is-small' do %>
+            <%= link_to new_project_path, class: 'button is-small' do %>
               <span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
-            <%# end %>
+            <% end %>
           </p>
         </div>
       </div>
       <hr />
-      <%# @projects.each do |project| %>
+      <%#@projects.each do |project| %>
         <div class="content border-bottom pb4">
           <p class="title is-4">
             <%#= link_to project.name, project %>
@@ -37,9 +37,9 @@
         </div>
         <div class="level-right">
           <p class="field">
-            <%#= link_to new_team_path, class: 'button is-small' do %>
+            <%= link_to new_team_path, class: 'button is-small' do %>
               <span class="icon is-small has-text-link"><i class="fa fa-plus"></i></span>
-            <%# end %>
+            <% end %>
           </p>
         </div>
       </div>
@@ -60,7 +60,7 @@
       <h3 class="subtitle is-5">Activity</h3>
       <hr />
       <ul class="list">
-        <%#= render_activities(@activities) %>
+        <%= render_activities(@activities) %>
       </ul>
     </div>
 
