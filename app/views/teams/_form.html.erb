@@ -13,7 +13,40 @@
 <div class="field">
   <div class="control">
     <label class="label">Name</label>
-    <input type="text" class="text">
+    <input type="text" class="text" placeholder="enter name.." />
   </div>
 </div>
 
+
+<div class="field">
+  <div class="control">
+    <label class="label">Email</label>
+    <input type="text" class="text" placeholder="enter email.." />
+  </div>
+</div>
+
+<input type="hidden" value="<%= current_user.id %>" />
+
+<div class="field">
+  <div class="control">
+    <button class="button is-small">Delete</button>
+  </div>
+</div>
+
+<div class="field">
+  <div class="control">
+   <button class="button is-link">Add user</button>
+  </div>
+</div>
+
+<hr />
+
+<div class="field">
+  <div class="control">
+    <% if current_page?(new_team_path) %>
+      <button class="button is-success is-large">Create Team</button>
+    <% else %>
+      <button class="button is-success is-large">Save Team</button>
+    <% end %>
+  </div>
+</div>
