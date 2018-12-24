@@ -72,11 +72,17 @@ document.addEventListener("turbolinks:load", () => {
 
             // to edit existing team
           } else {
-            this.$http.put(`/teams/${}`)
+            this.$http.put(`/teams/${this.id}`, {team: this.team}).then(response => {
+              Turbolinks.visit(`/teams/${response.body.id}`)
+            }, response => {
+              console.log(response)
+            })
           }
+        },
+        existingTeam: function() {
+          return this.team.id != null
         }
       }
     )}
   }
-
-});
+})
