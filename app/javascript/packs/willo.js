@@ -9,15 +9,15 @@ document.addEventListener("turbolinks:load", () => {
   const form = document.getElementById("team-form")
 
   if (form != null) {
-    var id = form.dataset.id
-    var team = JSON.parse(form.dataset.team)
-    var user_attributes = JSON.parse(form.dataset.usersAttributes)
+    const id = form.dataset.id
+    const team = JSON.parse(form.dataset.team)
+    const user_attributes = JSON.parse(form.dataset.usersAttributes)
     users_attributes.forEach(function(user) {
       user._destroy = null
     })
     team.users_attributes = user_attributes
 
-    var app = new Vue{(
+    const app = new Vue{(
       el: form,
       data: function() {
         return {

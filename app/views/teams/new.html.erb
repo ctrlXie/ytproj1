@@ -5,7 +5,7 @@
   data: {
     id: @team.id,
     team: @team.to_json(except: [:id, :created_at, :update_at]),
-    user_attributes: @team.users.to_json(except:[:created_at, :update_at])
+    users_attributes: @team.users.to_json(except:[:created_at, :update_at])
   } do
   %>
   <div class="column is-5">
