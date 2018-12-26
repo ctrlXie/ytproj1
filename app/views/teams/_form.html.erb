@@ -1,54 +1,48 @@
 <div class="field">
   <div class="control">
     <label class="label">Team Name</label>
-    <input type="text" class="input" placeholder="enter team name..">
+    <input type="text" class="input" v-model="team.name" />
   </div>
 </div>
 
 <div class="content">
   <h2 class="title is-4">Invite users</h2>
-    <p>invite friends to join your team.  we'll send them an email to create an account</p>
+  <p>Invite users to create an account and join this team. Each user will be sent a confirmation email in which they can supply their own unique password.</p>
 </div>
 
-<!--iterates through all users that comes back through JSON in new.html.erb-->
-<div v-for="(user, index) in team.user_attributes">
-  <div v-if="user.destroy == '1'">
-    {{user.name}} will be deleted.
-    <!--undoRemove(index) function comes from vue file "willo.js"-->
+<div v-for="(user, index) in team.users_attributes">
+  <div v-if="user._destroy =='1'">
+    {{ user.name }} will be removed.
     <button v-on:click="undoRemove(index)" class="button is-small">Undo</button>
   </div>
   <div v-else>
-
     <div class="field">
       <div class="control">
         <label class="label">Name</label>
-        <input type="text" class="input" placeholder="enter name.." v-model="user.name"/>
+        <input type="text" class="input" v-model="user.name" />
       </div>
     </div>
-
 
     <div class="field">
       <div class="control">
         <label class="label">Email</label>
-        <input type="text" class="input" placeholder="enter email.." v-model="user.email"/>
-        <div id="errors" class="has-text-danger" v-if="errors.length">{{errors}}</div>
+        <input type="text" class="input" v-model="user.email" />
+        <div id="errors" class="has-text-danger" v-if="errors.length">{{ errors }}</div>
       </div>
     </div>
     <input type="hidden" value="<%= current_user.id %>" />
     <div class="field">
       <div class="control">
-        <!--removeUser(index) function comes from vue file "willo.js"-->
-        <button v-on:click="removeUser(index)" class="button is-small">Delete</button>
+        <button v-on:click="removeUser(index)" class="button is-small">Remove</button>
       </div>
     </div>
   </div>
-<hr />
+  <hr />
 </div>
-
 
 <div class="field">
   <div class="control">
-   <button v-on:click="addUser" class="button is-link">Add user</button>
+    <button v-on:click="addUser" class="button is-link">Add User</button>
   </div>
 </div>
 
@@ -56,7 +50,6 @@
 
 <div class="field">
   <div class="control">
-    <!--if current page is the new team path, button will say "create team", else, "save team"-->
     <% if current_page?(new_team_path) %>
       <button v-on:click="saveTeam" class="button is-success is-large">Create Team</button>
     <% else %>
