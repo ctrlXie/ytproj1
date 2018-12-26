@@ -1,13 +1,13 @@
 <div class="field">
   <div class="control">
     <label class="label">Team Name</label>
-    <input type="text" class="input" v-model="team.name" />
+    <input type="text" class="input" v-model="team.name" placeholder="enter team name.." />
   </div>
 </div>
 
 <div class="content">
   <h2 class="title is-4">Invite users</h2>
-  <p>Invite users to create an account and join this team. Each user will be sent a confirmation email in which they can supply their own unique password.</p>
+  <p>invite friends to create an account.  we'll send them an email to get them started</p>
 </div>
 
 <div v-for="(user, index) in team.users_attributes">
@@ -19,14 +19,14 @@
     <div class="field">
       <div class="control">
         <label class="label">Name</label>
-        <input type="text" class="input" v-model="user.name" />
+        <input type="text" class="input" v-model="user.name" placeholder="enter name.." />
       </div>
     </div>
 
     <div class="field">
       <div class="control">
         <label class="label">Email</label>
-        <input type="text" class="input" v-model="user.email" />
+        <input type="text" class="input" v-model="user.email" placeholder="enter email.." />
         <div id="errors" class="has-text-danger" v-if="errors.length">{{ errors }}</div>
       </div>
     </div>
