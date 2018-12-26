@@ -8,13 +8,15 @@
     users_attributes: @team.users.to_json(except:[:created_at, :update_at])
   } do
   %>
-  <div class="column is-5">
+
+  <!-- scrollPosition in vue JS file willo.js-->
+  <div class="column is-5" :class="{formstatic: scrollPosition<100, formfixed: scrollPosition>100">
     <h1 class="subtitle is-2">Create a team</h1>
     <%= render 'form', team: @team %>
 
     <%= link_to 'Home', root_path %>
   </div>
-  <div class="column is-5">
+  <div class="column is-5" :class="{formstatic: scrollPosition<100, formfixed: scrollPosition>100">
     <h2 class="subtitle is-3">Team Name</h2>
     <table class="table is-fullwidth">
       <thead>
