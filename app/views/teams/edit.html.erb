@@ -1,6 +1,19 @@
+<section class="section">
+<%= content_tag :div,
+      id: "team-form",
+      data: {
+        id: @team.id,
+        team: @team.to_json(except: [:id, :created_at, :update_at]),
+        users_attributes: @team.users.to_json(except: [:created_at, :update_at])
+      } do %>
+
+
 <h1>Editing Team</h1>
 
 <%= render 'form', team: @team %>
 
+<% end %>
+
 <%= link_to 'Show', @team %> |
 <%= link_to 'Back', teams_path %>
+</section>
