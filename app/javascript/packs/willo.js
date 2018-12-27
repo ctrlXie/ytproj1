@@ -7,16 +7,16 @@ Vue.use(VueResource)
 document.addEventListener('turbolinks:load', () => {
   Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
-  const element = document.getElementById("team-form")
+  var element = document.getElementById("team-form")
   if (element != null) {
 
-    const id = element.dataset.id
-    const team = JSON.parse(element.dataset.team)
-    const users_attributes = JSON.parse(element.dataset.usersAttributes)
+    var id = element.dataset.id
+    var team = JSON.parse(element.dataset.team)
+    var users_attributes = JSON.parse(element.dataset.usersAttributes)
     users_attributes.forEach(function(user) { user._destroy = null })
     team.users_attributes = users_attributes
 
-    const app = new Vue({
+    var app = new Vue({
       el: element,
       data: function() {
         return {
@@ -44,7 +44,7 @@ document.addEventListener('turbolinks:load', () => {
         },
 
         removeUser: function(index) {
-          const user = this.team.users_attributes[index]
+          var user = this.team.users_attributes[index]
 
           if (user.id == null) {
             this.team.users_attributes.splice(index, 1)
@@ -67,7 +67,7 @@ document.addEventListener('turbolinks:load', () => {
               console.log(response)
 
               if (response.status = 422) {
-                const json = JSON.parse(response.bodyText);
+                var json = JSON.parse(response.bodyText);
                 this.errors = json["users.email"][0];
               }
             })

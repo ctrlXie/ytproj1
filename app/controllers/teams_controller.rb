@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @team = build
+    @team = current_user.teams.build
     @user = current_user
   end
 
@@ -26,8 +26,8 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team = build(team_params)
-    @team.user << current_user # append current user who created the team to an array
+    @team = current_user.teams.build(team_params)
+    @team.users << current_user # append current user who created the team to an array
 
     respond_to do |format|
       if @team.save
